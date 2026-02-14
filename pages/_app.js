@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../assets/styles/custom.css';
+import '../styles/custom.css'
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 
