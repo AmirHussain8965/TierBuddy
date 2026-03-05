@@ -20,8 +20,6 @@ build/
 # =========================
 # Environment variables
 # =========================
-.env
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -39,7 +37,6 @@ pnpm-debug.log*
 # =========================
 .DS_Store
 Thumbs.db
-.vscode/
 .idea/
 
 # =========================
@@ -51,3 +48,4 @@ coverage/
 # Misc
 # =========================
 *.pem
+config.bat
