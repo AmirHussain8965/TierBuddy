@@ -1190,6 +1190,15 @@ body {
     body {
         background-position: center calc(-70px);
     }
+    .hero_text_div {
+        width: 100%;
+        max-width: 700px;
+        margin: auto;
+        text-align: center;
+        height: auto;
+        min-height: 600px;
+        padding-top: 120px;
+    }
 }
 
 @media (max-width: 1140px) {}
