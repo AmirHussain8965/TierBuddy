@@ -10,7 +10,7 @@ export default function Navbar() {
     <header className='header_section'>
       <div className="container">
         <div className="navbar_inner_main">
-          <nav className={`navbar navbar-expand-lg`}>
+          <nav className={`navbar navbar-expand-lg navbar-dark`}>
             <Link href="/" className={`navbar-brand`}>
               TierListMaker
             </Link>
@@ -43,12 +43,11 @@ export default function Navbar() {
                 </li>
               </ul>
               <div className="navbar_btns">
-                <Link href="/login" className="navbar_btn1">
-                  Login
+                <Link href="/login">
+                  <button className="navbar_btn1" type='button'>Login</button>
                 </Link>
-                <Link href="/create" className="navbar_btn2">
-                  + Create
-                   
+                <Link href="/create">
+                  <button className="navbar_btn2" type='button'>+ Create</button>                   
                 </Link>
               </div>
             </div>

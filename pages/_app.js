@@ -6,6 +6,10 @@ import StatsCounter from '@/components/StatsCounter';
 import FeaturedCategories from '@/components/FeaturedCategories';
 import Rankings from '@/components/Rankings';
 import RecentWork from '@/components/RecentWork';
+import HowWorks from '@/components/HowWorks';
+import Choice from '@/components/Choice';
+import Build from '@/components/Build';
+import Footer from '@/components/Footer';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -16,6 +20,10 @@ export default function App({ Component, pageProps }) {
       <FeaturedCategories />
       <Rankings />
       <RecentWork />
+      <HowWorks />
+      <Choice />
+      <Build />
+      <Footer />
       <Component {...pageProps} />
     </>
   );

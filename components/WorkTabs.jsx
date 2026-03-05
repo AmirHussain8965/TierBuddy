@@ -182,34 +182,34 @@ const tabData = {
   ],
 };
 
-function RankingCard({ card }) {
+function RecentCard({ card }) {
   return (
-    <div className="ranking_card">
-      <div className="ranking_card_top">
-        <div className="ranking_card_header">
-          <h3 className="ranking_card_title">{card.title}</h3>
-          <p className="ranking_card_author">by {card.author}</p>
+    <div className="recent_work_card_body">
+      <div className="recent_work_card_top">
+        <div className="recent_work_card_header">
+          <h3 className="recent_work_card_title">{card.title}</h3>
+          <p className="recent_work_card_author"><span>by</span> {card.author}</p>
         </div>
-        <div className="ranking_card_badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+        <div className="recent_work_card_badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg>
-          #{card.rank}
+          <span>#{card.rank}</span>
         </div>
       </div>
 
-      <div className="ranking_card_avatars">
+      <div className="recent_work_card_avatars">
         {card.avatars.map((avatar, idx) => (
-          <div key={idx} className="ranking_avatar_wrap">
-            <span className="ranking_avatar_rank">{avatar.rank}</span>
-            <div className="ranking_avatar">{avatar.label}</div>
+          <div key={idx} className="recentwork_avatar_wrap">
+            <span className="recentwork_avatar_rank">{avatar.rank}</span>
+            <div className="recentwork_avatar">{avatar.label}</div>
           </div>
         ))}
       </div>
 
-      <div className="ranking_card_footer">
-        <div className="ranking_card_meta">
-          <div className="ranking_meta_item">
+      <div className="recent_work_card_footer">
+        <div className="recent_work_card_meta">
+          <div className="recentwork_meta_item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <rect x="3" y="3" width="7" height="7" rx="1" />
               <rect x="14" y="3" width="7" height="7" rx="1" />
@@ -218,7 +218,7 @@ function RankingCard({ card }) {
             </svg>
             {card.items} Items
           </div>
-          <div className="ranking_meta_item">
+          <div className="recentwork_meta_item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
@@ -226,7 +226,7 @@ function RankingCard({ card }) {
             {card.timeAgo}
           </div>
         </div>
-        <button className="ranking_view_btn">
+        <button className="recentwork_view_btn">
           View List
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <line x1="5" y1="12" x2="19" y2="12" />
@@ -247,209 +247,7 @@ export default function WorkTabs() {
     <>
       <style>{`
         /* ── Override Bootstrap nav-pills to match design ── */
-        .worktabs_nav_wrap {
-          display: flex;
-          justify-content: center;
-          margin-top: 40px;
-        }
-
-        .worktabs_nav_wrap .nav-pills {
-          background: #1a1a1c;
-          border-radius: 50px;
-          padding: 5px;
-          gap: 2px;
-          border: 1px solid #2a2a2e;
-          flex-wrap: nowrap;
-        }
-
-        .worktabs_nav_wrap .nav-pills .nav-link {
-          color: #888;
-          font-size: 14px;
-          font-weight: 500;
-          padding: 8px 22px;
-          border-radius: 50px;
-          background: none;
-          border: none;
-          white-space: nowrap;
-          transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .worktabs_nav_wrap .nav-pills .nav-link:hover {
-          color: #ccc;
-          background: none;
-        }
-
-        .worktabs_nav_wrap .nav-pills .nav-link.active {
-          background: #f5a623 !important;
-          color: #1a0f00 !important;
-          font-weight: 700;
-        }
-
-        /* ── Grid ── */
-        .ranking_grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 16px;
-          margin-top: 50px;
-        }
-
-        @media (max-width: 640px) {
-          .ranking_grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        /* ── Card ── */
-        .ranking_card {
-          background: #1a1a1c;
-          border-radius: 14px;
-          padding: 18px 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          border: 1px solid #242426;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-          cursor: pointer;
-        }
-
-        .ranking_card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-        }
-
-        .ranking_card_top {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          gap: 12px;
-        }
-
-        .ranking_card_header {
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-        }
-
-        .ranking_card_title {
-          font-size: 15px;
-          font-weight: 700;
-          color: #f0f0f0;
-          margin: 0;
-          line-height: 1.3;
-        }
-
-        .ranking_card_author {
-          font-size: 12px;
-          color: #666;
-          margin: 0;
-        }
-
-        .ranking_card_badge {
-          background: #2a2200;
-          color: #f5a623;
-          font-size: 12px;
-          font-weight: 700;
-          padding: 5px 10px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          white-space: nowrap;
-          flex-shrink: 0;
-          border: 1px solid #3d3000;
-        }
-
-        /* Avatars */
-        .ranking_card_avatars {
-          display: flex;
-          align-items: flex-end;
-          gap: 6px;
-        }
-
-        .ranking_avatar_wrap {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 3px;
-        }
-
-        .ranking_avatar_rank {
-          font-size: 10px;
-          color: #555;
-          font-weight: 600;
-          line-height: 1;
-        }
-
-        .ranking_avatar {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          background: #2e2300;
-          border: 2px solid #3d3000;
-          color: #c8840a;
-          font-size: 14px;
-          font-weight: 800;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        /* Footer */
-        .ranking_card_footer {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .ranking_card_meta {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-        }
-
-        .ranking_meta_item {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          font-size: 12px;
-          color: #555;
-        }
-
-        .ranking_meta_item svg {
-          width: 13px;
-          height: 13px;
-          opacity: 0.6;
-          flex-shrink: 0;
-        }
-
-        .ranking_view_btn {
-          background: none;
-          border: none;
-          cursor: pointer;
-          font-size: 13px;
-          font-weight: 600;
-          color: #f5a623;
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          padding: 0;
-          white-space: nowrap;
-          transition: opacity 0.2s ease, transform 0.2s ease;
-          letter-spacing: 0.01em;
-        }
-
-        .ranking_view_btn:hover {
-          opacity: 0.75;
-          transform: translateX(2px);
-        }
-
-        .ranking_view_btn svg {
-          transition: transform 0.2s ease;
-        }
-
-        .ranking_view_btn:hover svg {
-          transform: translateX(3px);
-        }
+        
       `}</style>
 
       {/* ✅ Bootstrap nav nav-pills — controlled by React state */}
@@ -476,9 +274,9 @@ export default function WorkTabs() {
       </div>
 
       {/* Cards Grid */}
-      <div className="ranking_grid">
+      <div className="recentwork_grid">
         {cards.map((card) => (
-          <RankingCard key={card.id} card={card} />
+          <RecentCard key={card.id} card={card} />
         ))}
       </div>
     </>
